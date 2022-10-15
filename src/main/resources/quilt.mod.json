@@ -1,0 +1,35 @@
+{
+	"schema_version": 1,
+	"quilt_loader": {
+		"group": "moe.inx",
+		"id": "simple_durability_tooltip",
+		"version": "${version}",
+		"metadata": {
+			"name": "Simple Durability Tooltip",
+			"description": "Shows the durability tooltip regardless of Advanced Tooltips being enabled",
+			"license": "MIT",
+			"contributors": {
+				"Infinidoge": "Owner"
+			},
+			"contact": {
+				"homepage": "https://github.com/Infinidoge/simple-durability-tooltip",
+				"issues": "https://github.com/Infinidoge/simple-durability-tooltip/issues",
+				"sources": "https://github.com/Infinidoge/simple-durability-tooltip"
+			},
+			"icon": "assets/simple_durability_tooltip/icon.png"
+		},
+		"intermediate_mappings": "net.fabricmc:intermediary",
+		"entrypoints": {},
+		"depends": [
+			{
+				"id": "quilt_loader",
+				"versions": ">=0.17.0-"
+			},
+			{
+				"id": "minecraft",
+				"versions": ">=1.19.2"
+			}
+		]
+	},
+	"mixin": "simple_durability_tooltip.mixins.json"
+}
