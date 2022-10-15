@@ -14,6 +14,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
@@ -32,7 +33,7 @@ public abstract class ItemStackMixin {
 			CallbackInfoReturnable<List<Text>> ci, List<Text> list) {
 		if (!context.isAdvanced()) {
 			if (this.isDamaged()) {
-				list.add(Text.translatable("item.durability", this.getMaxDamage() - this.getDamage(),
+				list.add(new TranslatableText("item.durability", this.getMaxDamage() - this.getDamage(),
 						this.getMaxDamage()));
 			}
 		}
