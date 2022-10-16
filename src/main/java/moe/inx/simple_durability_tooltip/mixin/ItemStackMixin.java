@@ -27,7 +27,7 @@ public abstract class ItemStackMixin {
 	@Shadow
 	abstract int getDamage();
 
-	@Inject(method = "getTooltip", at = @At(value = "TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT)
+	@Inject(method = "getTooltip", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/item/TooltipContext;isAdvanced()Z", ordinal = 2), locals = LocalCapture.CAPTURE_FAILSOFT)
 	public void simple_durability_tooltip$getTooltip(@Nullable PlayerEntity player, TooltipContext context,
 			CallbackInfoReturnable<List<Text>> ci, List<Text> list) {
 		if (!context.isAdvanced()) {
