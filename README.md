@@ -1,8 +1,7 @@
-# Simple Durability Tooltip
+# This branch is deprecated
 
-Shows the durability tooltip on a damaged item, regardless of if Advanced Tooltips is enabled or not.
-
-This is implemented as a very simple single mixin, and has no configuration options whatsoever. It is handled the exact same way Vanilla handles it, so it is fully translated.
+As of version 2.0, this branch is redundant, since the 1.19 branch now supports versions down to 1.14.
+Since it has a few useful snippets for getting 1.18 to work with few changes from a 1.19 branch, I am still leaving it up for posterity.
 
 ## License
 
