@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "simple_durability_tooltip",
+	"version": "${version}",
+
+	"name": "Simple Durability Tooltip",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": ["Infinidoge"],
+	"contact": {
+		"homepage": "https://github.com/Infinidoge/simple-durability-tooltip",
+		"sources": "https://github.com/Infinidoge/simple-durability-tooltip"
+	},
+
+	"license": "MIT",
+	"icon": "assets/simple_durability_tooltip/icon.png",
+
+	"environment": "client",
+	"entrypoints": {},
+	"mixins": ["simple_durability_tooltip.mixins.json"],
+
+	"depends": {
+		"fabricloader": ">=0.14.9",
+		"minecraft": ">=1.14"
+	}
+}
