@@ -1,10 +1,9 @@
 plugins {
 	id 'maven-publish'
-	alias libs.plugins.quilt.loom
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 }
 
-archivesBaseName = project.archives_base_name
-version = "${project.version}"
+version = project.mod_version
 group = project.maven_group
 
 repositories {
@@ -17,14 +16,13 @@ repositories {
 	}
 }
 
-// All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
 dependencies {
-	minecraft libs.minecraft
-	mappings variantOf(libs.quilt.mappings) { classifier "intermediary-v2" }
-	modImplementation libs.quilt.loader
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
 }
 
 processResources {
+	def version = project.version
 	inputs.property "version", version
 
 	filesMatching('*.mod.json') {
@@ -34,12 +32,12 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.encoding = "UTF-8"
-	it.options.release = 21
+	it.options.release = 25
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
 	withSourcesJar()
 
 	// If this mod is going to be a library, then it should also generate Javadocs in order to aid with development.
@@ -48,7 +46,10 @@ java {
 }
 
 jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
 	from("LICENSE") {
-		rename { "${it}_${archivesBaseName}" }
+		rename { "${it}_$projectName" }
 	}
 }

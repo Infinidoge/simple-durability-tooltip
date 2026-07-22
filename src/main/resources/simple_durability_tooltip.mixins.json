@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "moe.inx.simple_durability_tooltip.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_25",
   "mixins": [],
   "client": ["ItemStackMixin"],
   "injectors": {
